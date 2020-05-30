@@ -69,7 +69,7 @@ class Client
         $curl = $this->getcUrl();
 
         $request = $curl->newRequest('get', $this->buildUrl($endpoint, $parameters))
-            ->setOption(CURLOPT_TIMEOUT, 10);
+            ->setOption(CURLOPT_TIMEOUT, 10)->setOption(CURLOPT_SSL_VERIFYHOST, 0)->setOption(CURLOPT_SSL_VERIFYPEER, 0);
 
         $response = $request->send();
 
